@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        boolean increasing = true;
+        boolean decreasing = true;
+
+        for (int i = 1; i < n; i++) {
+            if (arr[i] > arr[i - 1]) {
+                decreasing = false;
+            }
+            if (arr[i] < arr[i - 1]) {
+                increasing = false;
+            }
+        }
+
+        if (increasing || decreasing) {
+            System.out.println("Monotonic");
+        } else {
+            System.out.println("Not Monotonic");
+        }
+    }
+}
+
+Sample Input 
+10
+2 4 3 5 7 1 8 6 9 10
+Sample Output 
+Not Monotonic
